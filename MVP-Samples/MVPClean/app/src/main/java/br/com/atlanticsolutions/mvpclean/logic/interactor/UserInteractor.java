@@ -23,8 +23,7 @@ public class UserInteractor {
                 .enqueue(new Callback<ListUsersResponse>() {
             @Override
             public void onResponse(Call<ListUsersResponse> call, Response<ListUsersResponse> response) {
-                int responseCode = response.code();
-                if(responseCode != MvpConstants.REQUEST_CODE_SUCCESS){
+                if(!response.isSuccessful()){
                     listener.onListUserError(MvpApplication.getInstance().getString(R.string.error_request));
                     return;
                 }
