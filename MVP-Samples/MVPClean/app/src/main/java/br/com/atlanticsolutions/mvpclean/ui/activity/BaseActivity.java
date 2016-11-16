@@ -91,4 +91,9 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
     public boolean isOnline() {
         return NetworkStatsUtil.isConnected(this);
     }
+
+    @Override
+    public String getResourceString(int resourceId) {
+        return getString(resourceId);
+    }
 }

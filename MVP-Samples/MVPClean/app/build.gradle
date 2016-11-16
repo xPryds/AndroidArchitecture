@@ -18,6 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -31,8 +34,6 @@ dependencies {
     compile "com.android.support:support-v13:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
-    testCompile 'junit:junit:4.12'
-
     compile 'com.google.code.gson:gson:2.6.2'
 
     //Butterknife - View Injection
@@ -48,4 +49,13 @@ dependencies {
 
     //Glide - Glide is a open source media management and image loading framework
     compile 'com.github.bumptech.glide:glide:3.7.0'
+
+
+    //Mockito and PowerMockito Test Frameworks
+    testCompile "org.mockito:mockito-core:2.1.0"
+    testCompile "org.powermock:powermock-module-junit4:1.6.2"
+    testCompile "org.powermock:powermock-module-junit4-rule:1.6.2"
+    testCompile "org.powermock:powermock-api-mockito:1.6.2"
+    testCompile "org.powermock:powermock-classloading-xstream:1.6.2"
+    testCompile 'junit:junit:4.12'
 }

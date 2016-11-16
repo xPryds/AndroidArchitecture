@@ -23,4 +23,6 @@ public interface IBaseView {
     boolean isGooglePlayServicesAvailable();
 
     boolean isOnline();
+
+    String getResourceString(int resourceId);
 }

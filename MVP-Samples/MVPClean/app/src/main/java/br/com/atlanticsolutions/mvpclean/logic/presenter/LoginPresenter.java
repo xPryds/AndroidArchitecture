@@ -61,10 +61,10 @@ public class LoginPresenter implements IBasePresenter, OnLoginFinishedListener {
             for (String fieldName : validation.second) {
                 switch (fieldName) {
                     case LoginRequest.FieldType.EMAIL:
-                        view.showEmailFieldError(application.getString(R.string.error_email_invalido));
+                        view.showEmailFieldError(view.getResourceString(R.string.error_email_invalido));
                         break;
                     case LoginRequest.FieldType.PASSWORD:
-                        view.showPasswordFieldError(application.getString(R.string.error_senha_invalida));
+                        view.showPasswordFieldError(view.getResourceString(R.string.error_senha_invalida));
                         break;
                 }
             }
