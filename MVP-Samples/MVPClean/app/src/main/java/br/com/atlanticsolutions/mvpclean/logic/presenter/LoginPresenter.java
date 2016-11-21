@@ -45,7 +45,7 @@ public class LoginPresenter implements IBasePresenter, OnLoginFinishedListener {
         }
 
         LoginRequest request = new LoginRequest(email, password);
-        Pair<String, ArrayList<String>> validation = request.validate();
+        ArrayList<Integer> validation = request.validate();
 
         if (!performValidation(validation)) {
             return;
@@ -55,16 +55,15 @@ public class LoginPresenter implements IBasePresenter, OnLoginFinishedListener {
         interactor.postLogin(request, this);
     }
 
-    private boolean performValidation(Pair<String, ArrayList<String>> validation) {
-        if (!TextUtils.isEmpty(validation.first)) {
-            view.showToastMessage(validation.first);
-            for (String fieldName : validation.second) {
+    private boolean performValidation(ArrayList<Integer> validation) {
+        if (validation != null) {
+            for (int fieldName : validation) {
                 switch (fieldName) {
                     case LoginRequest.FieldType.EMAIL:
-                        view.showEmailFieldError(view.getResourceString(R.string.error_email_invalido));
+                        view.showEmailFieldError();
                         break;
                     case LoginRequest.FieldType.PASSWORD:
-                        view.showPasswordFieldError(view.getResourceString(R.string.error_senha_invalida));
+                        view.showPasswordFieldError();
                         break;
                 }
             }
@@ -95,8 +94,8 @@ public class LoginPresenter implements IBasePresenter, OnLoginFinishedListener {
 
         void navigateToMainActivity();
 
-        void showEmailFieldError(String errorMessage);
+        void showEmailFieldError();
 
-        void showPasswordFieldError(String errorMessage);
+        void showPasswordFieldError();
     }
 }

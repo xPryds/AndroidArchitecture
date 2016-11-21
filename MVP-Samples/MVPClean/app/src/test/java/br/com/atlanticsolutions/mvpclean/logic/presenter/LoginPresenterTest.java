@@ -49,7 +49,7 @@ public class LoginPresenterTest{
         LoginPresenter presenter = new LoginPresenter(view);
         when(view.isOnline()).thenReturn(true);
         presenter.attemptToLogin("","teste");
-        verify(view).showEmailFieldError(any(String.class));
+        verify(view).showEmailFieldError();
     }
 
     @Test
@@ -58,6 +58,6 @@ public class LoginPresenterTest{
         LoginPresenter presenter = new LoginPresenter(view);
         when(view.isOnline()).thenReturn(true);
         presenter.attemptToLogin("teste","");
-        verify(view).showPasswordFieldError(any(String.class));
+        verify(view).showPasswordFieldError();
     }
 }
