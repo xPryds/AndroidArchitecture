@@ -53,13 +53,13 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     }
 
     @Override
-    public void showEmailFieldError(String errorMessage) {
-        etEmail.setError(errorMessage);
+    public void showEmailFieldError() {
+        etEmail.setError(getString(R.string.error_email_invalido));
     }
 
     @Override
-    public void showPasswordFieldError(String errorMessage) {
-        etPassword.setError(errorMessage);
+    public void showPasswordFieldError() {
+        etPassword.setError(getString(R.string.error_senha_invalida));
     }
     //endregion
 

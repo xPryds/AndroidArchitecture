@@ -1,5 +1,6 @@
 package br.com.atlanticsolutions.mvpclean.logic.model.pojo;
 
+import android.support.annotation.IntDef;
 import android.support.annotation.StringDef;
 import android.support.v4.util.Pair;
 import android.text.TextUtils;
@@ -19,30 +20,22 @@ public class LoginRequest {
         this.password = password;
     }
 
-    public Pair<String, ArrayList<String>> validate() {
-        StringBuilder builder = new StringBuilder();
-        ArrayList<String> wrongFields = new ArrayList<>();
+    public ArrayList<Integer> validate() {
+        ArrayList<Integer> wrongFields = new ArrayList<>();
         if(TextUtils.isEmpty(email)){
-            builder.append("\n")
-                    .append(FieldType.EMAIL);
             wrongFields.add(FieldType.EMAIL);
         }
         if(TextUtils.isEmpty(password)){
-            builder.append("\n")
-                    .append(FieldType.PASSWORD);
             wrongFields.add(FieldType.PASSWORD);
         }
-        if (builder.length() > 0) {
-            builder.insert(0, "Preencha o(s) seguinte(s) campo(s): \n");
-        }
 
-        return new Pair<>(builder.toString(), wrongFields);
+        return wrongFields.size() > 0 ? wrongFields : null;
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @StringDef({FieldType.EMAIL, FieldType.PASSWORD})
+    @IntDef({FieldType.EMAIL, FieldType.PASSWORD})
     public @interface FieldType{
-        String EMAIL = "E-mail";
-        String PASSWORD = "Senha";
+        int EMAIL = 1;
+        int PASSWORD = 2;
     }
 }
