@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MVP Rx</string>
+    <string name="loading_message">Carregando, aguarde...</string>
+    <string name="sem_conexao">Sem conexão com a internet.</string>
+    <string name="title_activity_login">Login</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="conectar">Conectar</string>
+    <string name="title_activity_main">Lista de usuários</string>
+    <string name="error_email_invalido">E-mail inválido</string>
+    <string name="error_senha_invalida">Senha inválida</string>
+    <string name="error_request">Erro durante requisição. Tente novamente.</string>
+    <string name="tentar_novamente">Tentar novamente</string>
+</resources>
